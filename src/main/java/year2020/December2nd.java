@@ -2,6 +2,7 @@ package year2020;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Function;
 
 import common.InputReader;
 
@@ -15,11 +16,9 @@ public class December2nd {
 		int numberOfLettersInPassword = this.getNumbersOfLetters(split[2], letter);
 		
 		if (numberOfLettersInPassword >= minimumOccurences && numberOfLettersInPassword <= maximumOccurences) {
-			System.out.println(password + "," + numberOfLettersInPassword + ", true");
 			return true;
 		}
 
-		System.out.println(password + "," + numberOfLettersInPassword + ", false");
 		return false;
 	}
 
@@ -29,17 +28,10 @@ public class December2nd {
 		Integer maximumOccurences = Integer.valueOf(split[0].substring(split[0].indexOf("-") + 1));
 		char letter = split[1].charAt(0);
 		
-		if (split[2].charAt(minimumOccurences - 1) == letter || split[2].charAt(maximumOccurences - 1) == letter) {
-			if (split[2].charAt(minimumOccurences - 1) == letter && split[2].charAt(maximumOccurences - 1) == letter) {
-				System.out.println(password + ", false");
-				return false;
-			}
-
-			System.out.println(password + ", true");
+		if (split[2].charAt(minimumOccurences - 1) == letter ^ split[2].charAt(maximumOccurences - 1) == letter) { //XOR!!
 			return true;	
 		}
 
-		System.out.println(password + ", false");
 		return false;
 	}
 
@@ -54,27 +46,24 @@ public class December2nd {
 
 		return count;
 	}
+	
+	private int getNumberOfValidPasswords(List<String> inputs, Function<String, Boolean> function) {
+		int counter = 0;
+		for (int i = 0; i < inputs.size(); i++) {
+			if (function.apply(inputs.get(i))) {
+				counter++;
+			}
+		}
+		
+		return counter;
+	}
 
 	public static void main(String[] args) throws IOException {
 		December2nd obj = new December2nd();
 		InputReader reader = new InputReader();
 		List<String> inputs = reader.read(December1st.class, "input2.txt");
-		int counter1 = 0;
-		int counter2 = 0;
-
-		for (int i = 0; i < inputs.size(); i++) {
-			if (obj.verifyPassword(inputs.get(i))) {
-				counter1++;
-			}
-		}
 		
-		for (int i = 0; i < inputs.size(); i++) {
-			if (obj.verifyPasswordPart2(inputs.get(i))) {
-				counter2++;
-			}
-		}
-		
-		System.out.println("Numbers of valid passwords: " + counter1);
-		System.out.println("Numbers of valid passwords, part 2: " + counter2);
+		System.out.println("Numbers of valid passwords: " + obj.getNumberOfValidPasswords(inputs, obj::verifyPassword));
+		System.out.println("Numbers of valid passwords, part 2: " + obj.getNumberOfValidPasswords(inputs, obj::verifyPasswordPart2));
 	}
 }
