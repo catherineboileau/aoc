@@ -34,4 +34,25 @@ public class InputReader {
 		    return codes;
 		}		
 	}
+	
+	public List<String> readPassport(Class<?> clazz, String inputFile) throws IOException {
+		List<String> inputs = new ArrayList<>();
+		
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
+			String line;
+	    	String fullLine = "";
+	    	
+		    while ((line = reader.readLine()) != null) {
+		    	if (line.equals("")) {
+			    	inputs.add(fullLine + " ");
+			    	fullLine = "";
+		    	} else {
+		    		fullLine = fullLine + " " + line;
+		    	}		    	
+		    }
+			
+		}
+		
+		return inputs;		
+	}
 }
