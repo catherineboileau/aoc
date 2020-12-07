@@ -28,7 +28,7 @@ public class December6th {
 					count++;
 				}
 			}
-			System.out.println("Count = "+count);
+			System.out.println("Count = " + count);
 			totalCount += count;
 		}
 						
@@ -56,7 +56,7 @@ public class December6th {
 					count++;
 				}
 			}
-			System.out.println("Count = "+count);
+			System.out.println("Count = " + count);
 			totalCount += count;
 		}
 						
