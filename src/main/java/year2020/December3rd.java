@@ -26,7 +26,7 @@ public class December3rd {
 	public static void main(String[] args) throws IOException {
 		December3rd obj = new December3rd();
 		InputReader reader = new InputReader();
-		List<String> inputs = reader.read(December1st.class, "input3.txt");
+		List<String> inputs = reader.read(December3rd.class, "input3.txt");
 
 		int count31 =  obj.countTrees(inputs, 3, 1);
 		int count11 =  obj.countTrees(inputs, 1, 1);

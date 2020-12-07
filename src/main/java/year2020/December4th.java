@@ -137,10 +137,7 @@ public class December4th {
 		InputReader reader = new InputReader();
 		List<String> inputs = reader.readPassport(December4th.class, "input4.txt");
 
-		System.out.println("inputs: " + inputs);
-		System.out.println("Valid Passports: " + obj.countValidPassportsPart1(inputs));
-		
-		
-		System.out.println("Valid Passports: " + obj.countValidPassportsPart2(inputs));
+		System.out.println("Valid Passports: " + obj.countValidPassportsPart1(inputs));		
+		System.out.println("Valid Passports (Part 2): " + obj.countValidPassportsPart2(inputs));
 	}
 }

@@ -55,4 +55,25 @@ public class InputReader {
 		
 		return inputs;		
 	}
+	
+	public List<String> readCustomAnswers(Class<?> clazz, String inputFile) throws IOException {
+		List<String> inputs = new ArrayList<>();
+		
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
+			String line;
+	    	String fullLine = "";
+	    	
+		    while ((line = reader.readLine()) != null) {
+		    	if (line.equals("")) {
+			    	inputs.add(fullLine + " ");
+			    	fullLine = "";
+		    	} else {
+		    		fullLine = fullLine + " " + line;
+		    	}		    	
+		    }
+			
+		}
+		
+		return inputs;		
+	}
 }

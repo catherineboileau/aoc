@@ -61,7 +61,7 @@ public class December2nd {
 	public static void main(String[] args) throws IOException {
 		December2nd obj = new December2nd();
 		InputReader reader = new InputReader();
-		List<String> inputs = reader.read(December1st.class, "input2.txt");
+		List<String> inputs = reader.read(December2nd.class, "input2.txt");
 		
 		System.out.println("Numbers of valid passwords: " + obj.getNumberOfValidPasswords(inputs, obj::verifyPassword));
 		System.out.println("Numbers of valid passwords, part 2: " + obj.getNumberOfValidPasswords(inputs, obj::verifyPasswordPart2));
