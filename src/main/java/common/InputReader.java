@@ -26,6 +26,20 @@ public class InputReader {
 		return inputs;		
 	}
 	
+	public List<Long> readInteger(Class<?> clazz, String inputFile) throws IOException {
+		List<Long> inputs = new ArrayList<>();
+		
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
+			String line;
+		    while ((line = reader.readLine()) != null) {
+		    	inputs.add(Long.valueOf(line));
+		    }
+			
+		}
+		
+		return inputs;		
+	}
+	
 	public String[] readLine(Class<?> clazz, String inputFile) throws IOException {		
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line = reader.readLine();
