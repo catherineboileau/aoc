@@ -64,7 +64,6 @@ public class December6th {
 	}
 
 	public class BinaryTree {
-
 		Node root;
 		Map<String, Node> nodes;
 		
