@@ -36,7 +36,6 @@ public class December1st {
 			int secondInt = inputsAsInt.get(i-1);
 			int thirdInt = inputsAsInt.get(i);
 			
-			System.out.println(firstInt + " " + secondInt + " " +thirdInt);
 			int sum = firstInt + secondInt + thirdInt;
 			
 			if (previousSum != -1 && sum > previousSum) {

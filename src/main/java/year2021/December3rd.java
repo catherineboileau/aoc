@@ -13,7 +13,6 @@ public class December3rd {
 
 	public Integer getAnswerPart1(List<String> inputs) {
 		Rate rate = getRates(inputs, SIZE, true);
-		System.out.println("Gamma: " + rate.gamma + ", Epsilon: " + rate.epsilon);
 		int decimalGamma = parseFromBinaryString(rate.gamma);
 		int decimalEpsilon = parseFromBinaryString(rate.epsilon);
 
@@ -80,22 +79,18 @@ public class December3rd {
 			final int index = i;
 			oxygenInputs = oxygenInputs.stream().filter(s -> isEqualToRate2(s, indexGamma, index))
 					.collect(Collectors.toList());
-			System.out.println("Rate: " + indexGamma + "List:" + oxygenInputs);
 			dioxideInputs = dioxideInputs.stream().filter(s -> isEqualToRate2(s, indexEpsilon, index))
 					.collect(Collectors.toList());
 
 			if (oxygenInputs.size() == 1) {
-				System.out.println("O:" + oxygenInputs.get(0) + ",D:");
 				oxygen = parseFromBinaryString(oxygenInputs.get(0));
 			}
 
 			if (dioxideInputs.size() == 1) {
-				// System.out.println("O:,D:"+dioxideInputs.get(0));
 				dioxide = parseFromBinaryString(dioxideInputs.get(0));
 			}
 		}
 
-		System.out.println("O:" + oxygen + ",D:" + dioxide);
 		return oxygen * dioxide;
 	}
 

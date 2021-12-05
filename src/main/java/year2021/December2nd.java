@@ -37,7 +37,6 @@ public class December2nd {
 			}
 		}
 		
-		System.out.println("P: "+position+",D: "+depth);
 		return position * depth;
 	}
 
@@ -66,7 +65,6 @@ public class December2nd {
 			}
 		}
 		
-		System.out.println("P: "+position+",D: "+depth);
 		return position * depth;
 	}
 

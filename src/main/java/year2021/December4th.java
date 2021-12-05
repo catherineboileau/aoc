@@ -10,7 +10,6 @@ import common.InputReader;
 
 public class December4th {
 
-	private int bingoLine = 0;
 	private int finalDraw = -1;
 	private Card winningCard;
 
@@ -31,11 +30,11 @@ public class December4th {
 				.collect(Collectors.toList());
 
 		while (cards.size() > 1) {
-			int bingoSum = getBingoLine(cards, draws);
+			getBingoLine(cards, draws);
 			cards.remove(this.winningCard);
 		}
 		
-		int bingoSum = getBingoLine(cards, draws);
+		getBingoLine(cards, draws);
 		
 		Card loosingCard = cards.get(0);
 		return loosingCard.getSumOfUnmarked() * finalDraw;
@@ -120,9 +119,7 @@ public class December4th {
 
 		public boolean isWinningCardWithRow() {
 			for (int i = 0; i < 5; i++) {
-				if (card[i][0].draw && card[i][1].draw && card[i][2].draw && card[i][3].draw && card[i][4].draw) {
-					bingoLine = card[i][0].number + card[i][1].number + card[i][2].number + card[i][3].number
-							+ card[i][4].number;
+				if (card[i][0].draw && card[i][1].draw && card[i][2].draw && card[i][3].draw && card[i][4].draw) {					
 					December4th.this.winningCard = this;
 					return true;
 				}
@@ -134,8 +131,6 @@ public class December4th {
 		public boolean isWinningCardWithColumn() {
 			for (int i = 0; i < 5; i++) {
 				if (card[0][i].draw && card[1][i].draw && card[2][i].draw && card[3][i].draw && card[4][i].draw) {
-					bingoLine = card[0][i].number + card[1][i].number + card[2][i].number + card[3][i].number
-							+ card[4][i].number;
 					December4th.this.winningCard = this;
 					return true;
 				}
