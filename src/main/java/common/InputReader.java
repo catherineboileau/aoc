@@ -7,87 +7,105 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputReader {
-	
+
 	public InputReader() {
-		
+
 	}
-	
+
 	public List<String> read(Class<?> clazz, String inputFile) throws IOException {
 		List<String> inputs = new ArrayList<>();
-		
+
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line;
-		    while ((line = reader.readLine()) != null) {
-		    	inputs.add(line);
-		    }
-			
+			while ((line = reader.readLine()) != null) {
+				inputs.add(line);
+			}
+
 		}
-		
-		return inputs;		
+
+		return inputs;
 	}
-	
+
 	public List<Long> readInteger(Class<?> clazz, String inputFile) throws IOException {
 		List<Long> inputs = new ArrayList<>();
-		
+
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line;
-		    while ((line = reader.readLine()) != null) {
-		    	inputs.add(Long.valueOf(line));
-		    }
-			
+			while ((line = reader.readLine()) != null) {
+				inputs.add(Long.valueOf(line));
+			}
+
 		}
-		
-		return inputs;		
+
+		return inputs;
 	}
-	
-	public String[] readLine(Class<?> clazz, String inputFile) throws IOException {		
+
+	public String[] readLine(Class<?> clazz, String inputFile) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line = reader.readLine();
-		    String[] codes = line.split(",");
-		    
-		    return codes;
-		}		
+			String[] codes = line.split(",");
+
+			return codes;
+		}
 	}
-	
+
+	public List<String> readBingoNumber(Class<?> clazz, String inputFile) throws IOException {
+		List<String> inputs = new ArrayList<>();
+
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
+			String line;
+			String line1 = reader.readLine();
+			String line2 = reader.readLine();
+			while ((line = reader.readLine()) != null) {
+				if (!line.equals("")) {
+					inputs.add(line);
+				}
+			}
+
+		}
+
+		return inputs;
+	}
+
 	public List<String> readPassport(Class<?> clazz, String inputFile) throws IOException {
 		List<String> inputs = new ArrayList<>();
-		
+
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line;
-	    	String fullLine = "";
-	    	
-		    while ((line = reader.readLine()) != null) {
-		    	if (line.equals("")) {
-			    	inputs.add(fullLine + " ");
-			    	fullLine = "";
-		    	} else {
-		    		fullLine = fullLine + " " + line;
-		    	}		    	
-		    }
-			
+			String fullLine = "";
+
+			while ((line = reader.readLine()) != null) {
+				if (line.equals("")) {
+					inputs.add(fullLine + " ");
+					fullLine = "";
+				} else {
+					fullLine = fullLine + " " + line;
+				}
+			}
+
 		}
-		
-		return inputs;		
+
+		return inputs;
 	}
-	
+
 	public List<String> readCustomAnswers(Class<?> clazz, String inputFile) throws IOException {
 		List<String> inputs = new ArrayList<>();
-		
+
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(clazz.getResourceAsStream(inputFile)))) {
 			String line;
-	    	String fullLine = "";
-	    	
-		    while ((line = reader.readLine()) != null) {
-		    	if (line.equals("")) {
-			    	inputs.add(fullLine + " ");
-			    	fullLine = "";
-		    	} else {
-		    		fullLine = fullLine + " " + line;
-		    	}		    	
-		    }
-			
+			String fullLine = "";
+
+			while ((line = reader.readLine()) != null) {
+				if (line.equals("")) {
+					inputs.add(fullLine + " ");
+					fullLine = "";
+				} else {
+					fullLine = fullLine + " " + line;
+				}
+			}
+
 		}
-		
-		return inputs;		
+
+		return inputs;
 	}
 }
