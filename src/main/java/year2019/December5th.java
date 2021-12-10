@@ -229,9 +229,9 @@ public class December5th {
 	public static void main(String[] args) throws IOException {
 		InputReader reader = new InputReader();
 		
-//		String[] inputs = reader.readLine(December5th.class, "input5.txt");
-//		December5th obj = new December5th(inputs, -1);
-//		System.out.println("Answer Part 1: " + obj.part1());
+		String[] inputs = reader.readLine(December5th.class, "input5.txt");
+		December5th obj = new December5th(inputs, -1);
+		System.out.println("Answer Part 1: " + obj.part1());
 		
 		String[] inputs2 = reader.readLine(December5th.class, "input5.txt");
 		December5th obj2 = new December5th(inputs2, -1);
