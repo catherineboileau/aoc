@@ -8,10 +8,6 @@ import java.util.List;
 
 public class InputReader {
 
-	public InputReader() {
-
-	}
-
 	public List<String> read(Class<?> clazz, String inputFile) throws IOException {
 		List<String> inputs = new ArrayList<>();
 
